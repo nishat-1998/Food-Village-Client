@@ -23,9 +23,9 @@ function Login() {
 
   const history = useHistory();
 
-  if (firebase.apps.length === 0) {
-    firebase.initializeApp(Config);
-  }
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
   useEffect(() => {
     dispatch(
@@ -53,7 +53,7 @@ function Login() {
       history.replace("/admin/bookinglist");
     }
   }, [user]);
-  
+
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
