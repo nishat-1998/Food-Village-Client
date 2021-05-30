@@ -53,6 +53,7 @@ function Login() {
       history.replace("/admin/bookinglist");
     }
   }, [user]);
+  
   if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
