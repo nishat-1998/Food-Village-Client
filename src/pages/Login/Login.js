@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
+import firebase from "firebase/app";
+import "firebase/auth";
+import "firebase/firestore";
+import firebaseConfig from '../../firebase.config';
 import "./Login.style.css";
 import { useHistory, Link } from "react-router-dom";
-import firebase from "firebase";
+// import firebase from "firebase";
 import Config, { auth } from "../../firebase.config";
 import { Form } from "react-bootstrap";
 import Header from "../../components/Header/Header";
+
 
 import { useDispatch } from "react-redux";
 import { login } from "../../features/userSlice";
@@ -48,7 +53,9 @@ function Login() {
       history.replace("/admin/bookinglist");
     }
   }, [user]);
-
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
   const loginWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     provider.setCustomParameters({

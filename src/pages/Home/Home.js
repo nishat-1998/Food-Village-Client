@@ -3,7 +3,7 @@ import Banner from "../Banner/Banner";
 import BannerFooter from "../BannerFooter/BannerFooter";
 import OrderingFood from "../OrderingFood/OrderingFood";
 import Footer from "../Footer/Footer";
-import Services from "../Services/Services";
+import Services from "../Services/Service";
 
 const Home = () => {
   const [search, setSearch] = useState('');
